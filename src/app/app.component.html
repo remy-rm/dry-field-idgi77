@@ -1,39 +1,44 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  {{userForm.valid}}
   <fieldset>
     <label for="username">Nom : 
       <input type="text"  formControlName="username"/>
     </label>
   </fieldset>
 
-  <fieldset>
-    <label for="mail"> mail :
-      <input type="email"  formControlName="mail"/>
-    </label>
-  </fieldset>
+  <div formGroupName="credentials">
+    <fieldset>
+      <label for="mail"> mail :
+        <input type="email"  formControlName="mail"/>
+      </label>
+    </fieldset>
+  
+    <fieldset>
+      <label for="password"> password :
+        <input type="password" formControlName="password"/>
+      </label>
+    </fieldset>
+  </div>
+  <div formGroupName="address">
+    <fieldset>
+      <label for="street"> street :
+        <input type="text" formControlName="street"/>
+      </label>
+    </fieldset>
+  
+    <fieldset>
+      <label for="zipcode"> zip Code :
+        <input type="number" formControlName="zipcode"/>
+      </label>
+    </fieldset>
+  
+    <fieldset>
+      <label for="city">city :
+        <input type="text" formControlName="city"/>
+      </label>
+    </fieldset>
+  </div>
 
-  <fieldset>
-    <label for="password"> password :
-      <input type="password" formControlName="password"/>
-    </label>
-  </fieldset>
-
-  <fieldset>
-    <label for="street"> street :
-      <input type="street" formControlName="street"/>
-    </label>
-  </fieldset>
-
-  <fieldset>
-    <label for="zipcode"> zip Code :
-      <input type="number" formControlName="zipCode"/>
-    </label>
-  </fieldset>
-
-  <fieldset>
-    <label for="city">city :
-      <input type="text" formControlName="city"/>
-    </label>
-  </fieldset>
   <button type="submit" [disabled]="!userForm.valid">Sign Up</button>
 </form>
 
