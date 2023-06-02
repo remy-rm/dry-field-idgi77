@@ -19,18 +19,17 @@ export class AppComponent {
   }
 
   userForm = this.fb.group({
-    username: ['',Validators.required],
+    username: ['', Validators.required],
 
     credentials: this.fb.group({
-      mail: ['',Validators.required],
-      password: [''],
+      mail: ['', Validators.required],
+      password: ['',  Validators.required],
     }),
 
     address :this.fb.group ({
-      street :['',Validators.required],
-      zipCode  :['',Validators.required],
-      city : ['',Validators.required]
-  
+      street :['' , Validators.required],
+      zipcode  :['', Validators.required],
+      city : ['' , Validators.required]
     })
   })
 
@@ -45,7 +44,7 @@ export class AppComponent {
       this.userForm.value.username!,
       this.userForm.value.credentials!.mail!,
       this.userForm.value.address!.street!,
-      parseInt(this.userForm.value.address!.zipCode!),
+      parseInt(this.userForm.value.address!.zipcode!),
       this.userForm.value.address!.city!
     ));
     alert(this.userForm.value)
@@ -54,3 +53,4 @@ export class AppComponent {
 
   }
 }
+
